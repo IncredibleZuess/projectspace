@@ -5,6 +5,7 @@ extends Node2D
 @export var horizontalDivider: int
 var coordinates = []
 var shipLocation
+var node = preload("res://galnode.tscn")
 
 func _ready() -> void:
 	print("ready")
@@ -18,11 +19,15 @@ func _draw() -> void:
 		draw_circle(Vector2(get_viewport_rect().size/2), 10, Color("Red"))
 	else:
 		for x in coordinates:
-			draw_circle(Vector2(x["x"]/verticalDivider,x["y"]/horizontalDivider), 20, Color("Red"))
-			var label = Label.new()
-			label.set_position(Vector2(x["x"]/verticalDivider -30,x["y"]/horizontalDivider +20))
-			label.text = x["symbol"]
-			add_child(label)
+			#draw_circle(Vector2(x["x"]/verticalDivider,x["y"]/horizontalDivider), 20, Color("Red"))
+			#var label = Label.new()
+			var galnode = node.instantiate()
+			galnode.set_position(Vector2(x["x"]/verticalDivider,x["y"]/horizontalDivider))
+			galnode.get_child(1).text = x["symbol"]
+			#label.set_position(Vector2(x["x"]/verticalDivider -30,x["y"]/horizontalDivider +20))
+			#label.text = x["symbol"]
+			#add_child(label)
+			add_child(galnode)
 	pass
 
 func getShipLocation():

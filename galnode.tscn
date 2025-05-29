@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmwlrkb6w761x"]
+
+[sub_resource type="Gradient" id="Gradient_pc7xd"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.292208)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3xjfb"]
+gradient = SubResource("Gradient_pc7xd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_3xjfb")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -45.0
+offset_top = 20.0
+offset_right = 47.0
+offset_bottom = 43.0
+text = "Placeholder"
