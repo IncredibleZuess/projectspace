@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://daxqq2xa8k5tg"]
+
+[ext_resource type="Script" uid="uid://uwb8wxeagpa7" path="res://login_screen.gd" id="1_wplbs"]
+
+[node name="Entry" type="CanvasLayer"]
+script = ExtResource("1_wplbs")
+
+[node name="LoginScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="LoginScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.266575, 0.266575, 0.266575, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoginScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.323438
+anchor_top = 0.446875
+anchor_right = 0.703125
+anchor_bottom = 0.561458
+offset_left = -25.0
+offset_top = -21.5
+offset_right = 25.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Key" type="TextEdit" parent="LoginScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "API Key"
+emoji_menu_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+empty_selection_clipboard_enabled = false
+scroll_past_end_of_file = true
+
+[node name="Login" type="Button" parent="LoginScreen/VBoxContainer"]
+layout_mode = 2
+text = "Login"
+
+[node name="Display" type="Label" parent="LoginScreen/VBoxContainer"]
+layout_mode = 2
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="LoginScreen/VBoxContainer/Login" to="." method="_on_login_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
