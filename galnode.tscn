@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmwlrkb6w761x"]
+[gd_scene load_steps=4 format=3 uid="uid://bmwlrkb6w761x"]
+
+[ext_resource type="Script" uid="uid://dnvekagbjlf0e" path="res://galnode.gd" id="1_3xjfb"]
 
 [sub_resource type="Gradient" id="Gradient_pc7xd"]
 interpolation_mode = 1
@@ -11,13 +13,28 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="Node2D" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_3xjfb")
+script = ExtResource("1_3xjfb")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -45.0
-offset_top = 20.0
-offset_right = 47.0
-offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Placeholder"
+
+[node name="Sprite2D" type="Sprite2D" parent="Label"]
+position = Vector2(43, -9)
+texture = SubResource("GradientTexture2D_3xjfb")
+
+[node name="Button" type="Button" parent="Label/Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -43.5
+offset_right = -20.0
+offset_bottom = -20.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Label/Sprite2D/Button" to="." method="_on_button_pressed"]
