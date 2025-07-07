@@ -29,10 +29,10 @@ func _draw() -> void:
 			#label.text = x["symbol"]
 			#add_child(label)a
 			add_child(galnode)
-			coordinates.pop_front()
 			#TODO Implement A* to connect these lines
 			#draw_multiline(points, lineColor) #This is to connect points together but it is left out for now because it connects to invisible points
 			systems = systems + 1
+		coordinates.clear()
 	pass
 
 func _ready() -> void:
