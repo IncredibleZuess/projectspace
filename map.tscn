@@ -8,6 +8,7 @@ script = ExtResource("1_c7s6e")
 Sun = Color(0.819608, 0.780392, 0.541176, 1)
 verticalDivider = 1
 horizontalDivider = 1
+lineColor = Color(1, 0.470588, 1, 1)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -23,13 +24,12 @@ offset_right = 49.0
 offset_bottom = 10.0
 text = "Loading Map"
 
-[node name="ShipRequest" type="HTTPRequest" parent="."]
-
 [node name="MapRequest" type="HTTPRequest" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_wijl4")
+speed = 500
+zoomLevel = 600.0
 
 [connection signal="draw" from="." to="." method="_on_draw"]
-[connection signal="request_completed" from="ShipRequest" to="." method="_handleShipRequest"]
 [connection signal="request_completed" from="MapRequest" to="." method="_handleMapRequest"]
