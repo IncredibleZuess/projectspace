@@ -4,8 +4,8 @@
 
 [sub_resource type="Gradient" id="Gradient_pc7xd"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.292208)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0.12987, 0.214286)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3xjfb"]
 gradient = SubResource("Gradient_pc7xd")
@@ -36,5 +36,7 @@ offset_right = -20.0
 offset_bottom = -20.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ShipRequest" type="HTTPRequest" parent="."]
 
 [connection signal="pressed" from="Label/Sprite2D/Button" to="." method="_on_button_pressed"]
