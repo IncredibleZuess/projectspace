@@ -2,29 +2,58 @@
 
 [ext_resource type="Script" uid="uid://dnvekagbjlf0e" path="res://galnode.gd" id="1_3xjfb"]
 
-[sub_resource type="Gradient" id="Gradient_pc7xd"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.12987, 0.214286)
+[sub_resource type="Gradient" id="Gradient_3xjfb"]
+offsets = PackedFloat32Array(0.149351, 0.207792)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3xjfb"]
-gradient = SubResource("Gradient_pc7xd")
+gradient = SubResource("Gradient_3xjfb")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Node2D" type="Node2D"]
+[node name="GalaxyNode" type="Node2D"]
 script = ExtResource("1_3xjfb")
 
-[node name="Label" type="Label" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 274.0
+offset_top = 228.5
+offset_right = 366.0
+offset_bottom = 251.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Placeholder"
 
-[node name="Sprite2D" type="Sprite2D" parent="Label"]
-position = Vector2(43, -9)
+[node name="Control" type="Control" parent="Control/Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 0.5
+offset_right = 32.0
+offset_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Label/Control"]
+position = Vector2(0, -12.5)
 texture = SubResource("GradientTexture2D_3xjfb")
 
-[node name="Button" type="Button" parent="Label/Sprite2D"]
+[node name="Button" type="Button" parent="Control/Label/Control/Sprite2D"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -39,4 +68,4 @@ grow_vertical = 2
 
 [node name="ShipRequest" type="HTTPRequest" parent="."]
 
-[connection signal="pressed" from="Label/Sprite2D/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Label/Control/Sprite2D/Button" to="." method="_on_button_pressed"]
