@@ -6,7 +6,6 @@ var node = preload("res://galnode.tscn")
 var systems = 20
 
 func getSystemData(data: String):
-	$systemRequest.request_completed.connect(_systemDataReceived)
 	$systemRequest.request(
 		"https://api.spacetraders.io/v2/systems/"+ data,
 		["Authorization: Bearer " + Data.playerKey]
