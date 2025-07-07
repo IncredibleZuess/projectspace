@@ -4,6 +4,7 @@ var config = ConfigFile.new()
 var err = config.load("user://pData.cfg") #TODO implement error handling if a file becomes corrupted
 var playerKey = ""
 var ships = []
+var systemSelected = ""
 
 var shipReq = HTTPRequest.new()
 
@@ -63,3 +64,4 @@ func _ready():
 	for player in config.get_sections():
 		playerKey = config.get_value(player, "key")
 	checkValid()
+	getShipLocation()
