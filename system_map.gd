@@ -1,8 +1,8 @@
 extends Node2D
 var coordinates = []
 var node = preload("res://galnode.tscn")
-@export var verticalDivider: int
-@export var horizontalDivider: int
+@export var verticalDivider: float
+@export var horizontalDivider: float
 var systems = 20
 
 func getSystemData(data: String):
@@ -27,8 +27,13 @@ func _draw() -> void:
 			galnode.get_node("Control").get_node("Label").text = x["symbol"]
 			#label.set_position(Vector2(x["x"]/verticalDivider -30,x["y"]/horizontalDivider +20))
 			#label.text = x["symbol"]
-			#add_child(label)a
+			#add_child(label)
 			add_child(galnode)
+			if x["type"] == "ASTEROID":
+				galnode.get_node("Control/Label/Control/Sprite2D").set_animation("ASTEROID"+str(randi_range(1,3)))
+			else:
+				galnode.get_node("Control/Label/Control/Sprite2D").set_animation(x["type"])
+			
 			#TODO Implement A* to connect these lines
 			#draw_multiline(points, lineColor) #This is to connect points together but it is left out for now because it connects to invisible points
 			systems = systems + 1
@@ -36,6 +41,7 @@ func _draw() -> void:
 	pass
 
 func _ready() -> void:
+	$systemRequest.request_completed.connect(_systemDataReceived)
 	getSystemData(Data.systemSelected)
 	
 	

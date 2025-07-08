@@ -1,15 +1,245 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmwlrkb6w761x"]
+[gd_scene load_steps=36 format=3 uid="uid://bmwlrkb6w761x"]
 
 [ext_resource type="Script" uid="uid://dnvekagbjlf0e" path="res://galnode.gd" id="1_3xjfb"]
+[ext_resource type="Texture2D" uid="uid://dp2e3lhkt7oup" path="res://Sprites/AsteroidSheetOLD.png" id="2_1qmpn"]
+[ext_resource type="Texture2D" uid="uid://bk7qppsm03e8i" path="res://Sprites/sun.png" id="3_cqf75"]
+[ext_resource type="Texture2D" uid="uid://dyqhr604e5r5l" path="res://Sprites/Orange.png" id="3_hhyf2"]
+[ext_resource type="Texture2D" uid="uid://dvcoi5jmyjc1b" path="res://Sprites/Unstable.png" id="4_77kty"]
+[ext_resource type="Texture2D" uid="uid://dipncs6g66iwg" path="res://Sprites/White_Dwarf.png" id="6_7qquo"]
 
-[sub_resource type="Gradient" id="Gradient_3xjfb"]
-offsets = PackedFloat32Array(0.149351, 0.207792)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqf75"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3xjfb"]
-gradient = SubResource("Gradient_3xjfb")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
+[sub_resource type="AtlasTexture" id="AtlasTexture_77kty"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhyf2"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qquo"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7uac"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml6ab"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6xip"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx4sb"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbykc"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq5qg"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81hv6"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skqla"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqtcr"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1rcq"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_law47"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnynj"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60og4"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aopvh"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4arf"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up2v4"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dsh1"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cr8a"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdj2u"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lytxo"]
+atlas = ExtResource("2_1qmpn")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8papm"]
+atlas = ExtResource("3_hhyf2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqj8a"]
+atlas = ExtResource("3_cqf75")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2141"]
+atlas = ExtResource("4_77kty")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jds3j"]
+atlas = ExtResource("6_7qquo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_60og4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqf75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77kty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhyf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qquo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7uac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml6ab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6xip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx4sb")
+}],
+"loop": true,
+"name": &"ASTEROID1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbykc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq5qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81hv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skqla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqtcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1rcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_law47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnynj")
+}],
+"loop": true,
+"name": &"ASTEROID2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60og4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aopvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4arf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up2v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dsh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cr8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdj2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lytxo")
+}],
+"loop": true,
+"name": &"ASTEROID3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8papm")
+}],
+"loop": true,
+"name": &"ORANGE_STAR",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqj8a")
+}],
+"loop": true,
+"name": &"PlaceholderSun",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2141")
+}],
+"loop": true,
+"name": &"UNSTABLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jds3j")
+}],
+"loop": true,
+"name": &"WHITE_DWARF",
+"speed": 5.0
+}]
 
 [node name="GalaxyNode" type="Node2D"]
 script = ExtResource("1_3xjfb")
@@ -49,20 +279,41 @@ offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Label/Control"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Control/Label/Control"]
 position = Vector2(0, -12.5)
-texture = SubResource("GradientTexture2D_3xjfb")
+sprite_frames = SubResource("SpriteFrames_60og4")
+animation = &"ORANGE_STAR"
+autoplay = "ASTEROID1"
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {
+"embed_tex": false,
+"layers": ["Asteroid 1"],
+"o_ex_p": "",
+"o_folder": "res://Sprites",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "res://Sprites/AsteroidSheetOLD.aseprite",
+"source_uid": 1209433612339447130
+},
+"slice_section": true
+}
 
 [node name="Button" type="Button" parent="Control/Label/Control/Sprite2D"]
+clip_children = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -44.0
-offset_top = -43.5
-offset_right = -20.0
-offset_bottom = -20.5
+offset_left = -29.0
+offset_top = -27.5
+offset_right = -5.0
+offset_bottom = -4.5
 grow_horizontal = 2
 grow_vertical = 2
 

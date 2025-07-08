@@ -4,10 +4,11 @@ var config = ConfigFile.new()
 var err = config.load("user://pData.cfg") #TODO implement error handling if a file becomes corrupted
 var playerKey = ""
 var ships = []
+var shipdata = []
 var systemSelected = ""
 
 var shipReq = HTTPRequest.new()
-
+var req = HTTPRequest.new()
 #Helper method to delete the config if the token expires
 func delete():
 	print("clearing config")
@@ -15,9 +16,9 @@ func delete():
 
 
 func checkValid():
-	var req = HTTPRequest.new()
+	
 	add_child(req)
-	req.request_completed.connect(self._http_request_completed)
+	
 	var headers = ["Authorization: Bearer " + playerKey]
 	print(playerKey)
 	req.request("https://api.spacetraders.io/v2/my/account",headers)
@@ -27,7 +28,7 @@ func checkValid():
 func getShipLocation():
 
 	add_child(shipReq)
-	shipReq.request_completed.connect(_handleShipRequest)
+	
 	shipReq.request(
 		"https://api.spacetraders.io/v2/my/ships",
 		["Authorization: Bearer " + Data.playerKey]
@@ -51,16 +52,18 @@ func _handleShipRequest(_result: int, response_code: int, _headers: PackedString
 	print(response_code)
 	var shipNum = 0
 	for x in res["data"]:
+		shipdata.append(x)
 		print(x["nav"]["systemSymbol"])
 		print("Ship " + str(shipNum))
 		#print(x["nav"])
 		ships.append(x["nav"]["systemSymbol"])
 		shipNum += 1
 	
-	shipReq.queue_free()
 	
 
 func _ready():
+	req.request_completed.connect(self._http_request_completed)
+	shipReq.request_completed.connect(_handleShipRequest)
 	for player in config.get_sections():
 		playerKey = config.get_value(player, "key")
 	checkValid()

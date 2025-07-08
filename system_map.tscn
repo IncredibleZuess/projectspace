@@ -5,8 +5,8 @@
 
 [node name="System Map" type="Node2D"]
 script = ExtResource("1_vkxrh")
-verticalDivider = 1
-horizontalDivider = 1
+verticalDivider = 1.0
+horizontalDivider = 1.0
 
 [node name="systemRequest" type="HTTPRequest" parent="."]
 

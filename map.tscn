@@ -35,5 +35,22 @@ script = ExtResource("2_wijl4")
 speed = 500
 zoomLevel = 600.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ship" type="Button" parent="CanvasLayer/GUI"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Show Ship Info"
+
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="request_completed" from="MapRequest" to="." method="_handleMapRequest"]
+[connection signal="pressed" from="CanvasLayer/GUI/Ship" to="." method="_on_ship_pressed"]
