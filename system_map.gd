@@ -23,12 +23,12 @@ func _draw() -> void:
 			#draw_circle(Vector2(x["x"]/verticalDivider,x["y"]/horizontalDivider), 20, Color("Red"))
 			#var label = Label.new()
 			var galnode = node.instantiate()
-			galnode.set_global_position(Vector2(x["x"]/verticalDivider,x["y"]/horizontalDivider))
 			galnode.get_node("Control").get_node("Label").text = x["symbol"]
 			#label.set_position(Vector2(x["x"]/verticalDivider -30,x["y"]/horizontalDivider +20))
 			#label.text = x["symbol"]
 			#add_child(label)a
 			add_child(galnode)
+			galnode.set_global_position(Vector2(x["x"]/verticalDivider,x["y"]/horizontalDivider))
 			#TODO Implement A* to connect these lines
 			#draw_multiline(points, lineColor) #This is to connect points together but it is left out for now because it connects to invisible points
 			systems = systems + 1
