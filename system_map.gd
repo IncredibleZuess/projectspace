@@ -55,6 +55,18 @@ func _systemDataReceived(_result: int, _response_code: int, _headers: PackedStri
 	
 
 
-func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://map.tscn")
-	pass # Replace with function body.
+func _on_close_button_pressed() -> void:
+	# Close the system window and notify the map
+	var window = get_parent()
+	var map = get_tree().get_first_node_in_group("galaxy_map")
+	if map and map.has_method("remove_system_window"):
+		map.remove_system_window(window)
+	window.queue_free()
+
+func _on_window_close_requested() -> void:
+	# Handle window close request
+	var window = get_parent()
+	var map = get_tree().get_first_node_in_group("galaxy_map")
+	if map and map.has_method("remove_system_window"):
+		map.remove_system_window(window)
+	window.queue_free()

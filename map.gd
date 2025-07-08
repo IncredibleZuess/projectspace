@@ -13,6 +13,7 @@ var page = 1
 var systems = 20
 var node = preload("res://galnode.tscn")
 var galFile = FileAccess.open("user://planets.json", FileAccess.WRITE)
+var system_windows = [] # Track opened system windows
 
 
 func _ready() -> void:
@@ -85,3 +86,20 @@ func _handleMapRequest(_result: int, _response_code: int, _headers: PackedString
 	print("*" + str(systems))
 	
 	pass # Replace with function body.
+
+# Window management functions
+func add_system_window(window):
+	system_windows.append(window)
+
+func remove_system_window(window):
+	if window in system_windows:
+		system_windows.erase(window)
+
+func cleanup_system_windows():
+	for window in system_windows:
+		if is_instance_valid(window):
+			window.queue_free()
+	system_windows.clear()
+
+func _exit_tree():
+	cleanup_system_windows()
