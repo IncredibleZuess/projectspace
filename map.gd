@@ -95,6 +95,9 @@ func remove_system_window(window):
 	if window in system_windows:
 		system_windows.erase(window)
 
+func get_system_window_count() -> int:
+	return system_windows.size()
+
 func cleanup_system_windows():
 	for window in system_windows:
 		if is_instance_valid(window):
